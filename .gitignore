@@ -1,0 +1,11 @@
+# Project exclude paths
+/admin/target/
+/admin2/target/
+/email/target/
+/entity/target/
+/file/target/
+/gateway/target/
+/mybatis/target/
+/product/target/
+/redis/target/
+/web/target/

@@ -1,0 +1,13 @@
+server:
+  port: 85
+spring:
+  application:
+    name: email
+  profiles:
+    active: register,rabbitmq,email
+  cloud:
+    nacos:
+      config:
+        server-addr: 192.168.80.121:8848
+        prefix: swh
+        file-extension: yml

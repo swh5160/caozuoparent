@@ -1,0 +1,28 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.80.121:8848
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: admin
+          uri: lb://admin
+          predicates:
+            - Path=/umsUser/**
+        - id: product
+          uri: lb://product
+          predicates:
+            - Path=/pmsAttr/**,/pmsBrand/**,/pmsCategory/**,/pmsProduct/**,/pmsSku/**,/umsFile/**
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "http://127.0.0.1"
+            allowedMethods: "*"
+            allowedHeaders: "*"

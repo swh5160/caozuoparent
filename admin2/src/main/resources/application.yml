@@ -1,0 +1,9 @@
+server:
+  port: 83
+spring:
+  application:
+    name: admin
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.80.121:8848
