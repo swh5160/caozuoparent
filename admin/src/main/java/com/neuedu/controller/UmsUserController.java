@@ -1,7 +1,9 @@
 package com.neuedu.controller;
 
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.neuedu.common.ResultJson;
+import com.neuedu.core.SentinelUtil;
 import com.neuedu.entity.UmsUser;
 import com.neuedu.service.UmsUserService;
 import io.minio.errors.*;
@@ -31,6 +33,7 @@ public class UmsUserController {
     UmsUserService umsUserService;
 
     @GetMapping("/list")
+    @SentinelResource(value = "user_list",blockHandlerClass = {SentinelUtil.class},blockHandler = "handlerException")
     ResultJson list(Integer pageNo, Integer pageSize, String value){
         return  ResultJson.success(umsUserService.list(pageNo,pageSize,value));
     }

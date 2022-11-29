@@ -1,5 +1,7 @@
 package com.neuedu.service.impl;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.neuedu.entity.PmsProduct;
 import com.neuedu.mapper.PmsProductMapper;
@@ -17,4 +19,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class PmsProductServiceImpl extends ServiceImpl<PmsProductMapper, PmsProduct> implements PmsProductService {
 
+    @Override
+    public IPage<PmsProduct> list(Integer pageNo, Integer pageSize, String value) {
+        return this.page(new Page<>(pageNo,pageSize));
+    }
 }

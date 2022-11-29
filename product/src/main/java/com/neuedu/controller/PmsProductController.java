@@ -45,6 +45,11 @@ public class PmsProductController {
     PmsProductService pmsProductService;
     @Resource
     PmsSkuService pmsSkuService;
+
+    @GetMapping("/list")
+    ResultJson list(Integer pageNo,Integer pageSize,String value){
+        return ResultJson.success(pmsProductService.list(pageNo,pageSize,value));
+    }
     /*
     * 初始化加载两个数据，全部+状态存在
     * */

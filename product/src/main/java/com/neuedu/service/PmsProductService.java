@@ -1,5 +1,6 @@
 package com.neuedu.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.neuedu.entity.PmsProduct;
 
@@ -12,5 +13,5 @@ import com.neuedu.entity.PmsProduct;
  * @since 2022-09-28
  */
 public interface PmsProductService extends IService<PmsProduct> {
-
+    IPage<PmsProduct> list(Integer pageNo,Integer pageSize,String value);
 }
